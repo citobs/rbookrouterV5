@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # reactbookWeb
 
 12/19 16:45 리액트를 사용한 대출도서프로그램 시작!
@@ -53,4 +55,13 @@
 
 12/22 02:40 기능 일부제한 firebase deploy 완료 !
 
-- 웹주소 : https://book-app-b44b4.web.app/
+- # 웹주소 : https://book-app-b44b4.web.app/
+
+# rbookrouterV5
+
+리액트라우터 v5를 사용한 버전
+
+- 강제 리드미 덮어 쓰기 :
+- git pull origin (branchname) --allow-unrelated-histories
+
+라우터 V5를 사용한 깃헙 시작(v6 삭제후 v5설치)
