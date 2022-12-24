@@ -4,16 +4,16 @@ import { useState } from "react";
 import { Button, Field, Message, Modal } from "../ui";
 import db from "../firebase";
 import { ToasterContext } from "../ui/ToasterContext";
-import { useNavigate } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 
 function EditBook({ book, id }) {
   const [bookTitle, setBookTitle] = useState(book.title);
-  const [bookPage, setBookPage] = useState(book.pages);
-  const [bookPublish, setBookPublish] = useState(book.publish);
+  const [bookPage, setBookPage] = useState(book.page);
+  const [bookPublish, setBookPublish] = useState(book.Publish);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  //   const history = useNavigate();
+  // const history = useHistory();
 
   // const [books, setBooks] = useState(null);
 

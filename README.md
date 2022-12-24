@@ -65,3 +65,5 @@
 - git pull origin (branchname) --allow-unrelated-histories
 
 라우터 V5를 사용한 깃헙 시작(v6 삭제후 v5설치)
+
+lfs적용테스트

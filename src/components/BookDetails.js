@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {
-  BrowserRouter,
   Route,
   useParams,
-  Routes,
+  Switch,
   Link,
   Outlet,
+  useRouteMatch,
 } from "react-router-dom";
 import db from "../firebase";
 import BookAuthors from "./book-details/BookAuthrs";
@@ -17,7 +17,7 @@ function BookDetails() {
   const { id } = useParams();
   const [book, setBook] = useState([]);
 
-  <Link to='' />;
+  const match = useRouteMatch();
 
   //페이지고정후 이동하게 해주는 장치
   //  라우터 v5 (useroutematch없어짐)
@@ -46,22 +46,27 @@ function BookDetails() {
     } catch (e) {
       console.error(e);
     }
-  }, [id]);
+  }, []);
 
   console.log(book);
 
   return (
     <div className='bookDetails'>
-      <BookMenu />
-      <Outlet />
+      <BookMenu url={match.url} />
 
       {book ? (
-        <Routes>
-          <Route path='/' exact element={<BookGeneral book={book} id={id} />}>
-            <Route path='authors' element={<BookAuthors book={book} />} />
-            <Route path='photos' element={<BookPhotos book={book} />} />
+        <Switch>
+          <Route path={`${match.path}`} exact>
+            <BookGeneral book={book} id={id} />
           </Route>
-        </Routes>
+          <Route path={`${match.path}/authors`}>
+            <BookAuthors book={book} />
+            id={id}/>
+          </Route>
+          <Route path={`${match.path}/photos`}>
+            <BookPhotos book={book} />
+          </Route>
+        </Switch>
       ) : (
         "저장된 내역이 존재하지 않습니다 "
       )}

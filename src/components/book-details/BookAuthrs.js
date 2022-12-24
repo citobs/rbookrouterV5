@@ -1,7 +1,7 @@
 import React from "react";
 import AuthorForm from "../AuthorForm";
 
-function BookAuthors({ book }) {
+function BookAuthors({ book, id }) {
   return (
     <div className='bookAutors'>
       <h1>작가정보</h1>

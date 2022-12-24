@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Button, Field, Message, Modal } from "../ui";
 import db from "../firebase";
 import { ToasterContext } from "../ui/ToasterContext";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function AddBook() {
   const [bookTitle, setBookTitle] = useState("");
@@ -13,7 +14,7 @@ function AddBook() {
   const [error, setError] = useState(null);
   const [isModal, setIsModal] = useState(false);
 
-  const history = useNavigate();
+  const history = useHistory();
 
   // const [books, setBooks] = useState(null);
 
@@ -34,7 +35,7 @@ function AddBook() {
 
       addToast({ text: "성공적으로 추가되었습니다.", type: "success" });
       // setIsModal(false);
-      history(`/book/${docRef.id}`);
+      history.push(`/book/${docRef.id}`);
 
       //   setToasts(["성공했습니다 by CIT"]);
     } catch (e) {
